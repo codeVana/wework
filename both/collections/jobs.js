@@ -40,6 +40,11 @@ Jobs.attachSchema(
       type: Boolean,
       label: "This is a remote position."
     },
+    duration: {
+      type: String,
+      label: "Job Duration",
+      allowedValues: JOB_DURATION
+    },
     userId: {
       type: String,
       label: "User Id",
@@ -164,11 +169,11 @@ Jobs.allow({
     return userId && doc && userId === doc.userId;
   },
   update: function(userId, doc, fieldNames, modifier) {
-    return Roles.userIsInRole(userId, ['admin']) || 
-    (!_.contains(fieldNames, 'htmlDescription') 
-      && !_.contains(fieldNames, 'status') 
-        && !_.contains(fieldNames, 'featuredThrough') 
-          && !_.contains(fieldNames, 'featuredChargeHistory') 
+    return Roles.userIsInRole(userId, ['admin']) ||
+    (!_.contains(fieldNames, 'htmlDescription')
+      && !_.contains(fieldNames, 'status')
+        && !_.contains(fieldNames, 'featuredThrough')
+          && !_.contains(fieldNames, 'featuredChargeHistory')
           && /*doc.status === "pending" &&*/ userId && doc && userId === doc.userId);
   },
   remove: function(userId, doc) {

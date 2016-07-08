@@ -1,5 +1,5 @@
 JOB_TYPES = ["Full Time", "Part Time",  "Hourly Contract", "Term Contract", "Mentoring", "Internship", "Bounty", "Open Source", "Volunteer", "Other"];
-
+JOB_DURATION = ["One Day", "One Week", "Two Weeks", "One Month"];
 SUMMERNOTE_OPTIONS = {
   type: 'summernote',
   height: 300,
